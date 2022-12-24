@@ -3,7 +3,7 @@ const express = require('express')
 const app = express()
 const path = require('path')
 const fs = require('fs')
-const { connect } = require('./data/init')
+const { connect } = require('../data/init')
 
 const PORT = process.env.PORT || 3000
 
