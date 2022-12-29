@@ -31,7 +31,7 @@ const getBlogById = async (req, res, next) => {
 
 
         if (!match) {
-            const error = new Error(`A workshop with id = ${idInt} does not exist`)
+            const error = new Error(`A workshop with id = ${id} does not exist`)
             error.name = Errors.NotFound;
 
             next(error);
