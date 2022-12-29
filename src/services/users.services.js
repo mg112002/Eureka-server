@@ -23,6 +23,7 @@ const validateUser = async (loginInfo) => {
     return user
 }
 
+
 module.exports = {
     addUser,
     validateUser

@@ -17,7 +17,14 @@ const newsletterSchema = new mongoose.Schema({
             'Queue',
             'Stack',
             'Graph',
-            'Dynamic Programming'
+            'Dynamic Programming',
+            'C',
+            'C++',
+            'Python',
+            'Java',
+            'JavaScript',
+            'C#',
+            'Ruby'
         ]
     }]
 })

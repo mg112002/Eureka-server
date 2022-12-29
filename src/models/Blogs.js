@@ -13,7 +13,7 @@ const blogSchema = new mongoose.Schema({
             'C++',
             'Python',
             'Java',
-            'Javascript',
+            'JavaScript',
             'C#',
             'Ruby'
         ]

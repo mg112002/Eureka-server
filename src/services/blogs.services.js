@@ -1,17 +1,34 @@
 const mongoose = require('mongoose')
 
 const Blog = mongoose.model('Blog')
+const User = mongoose.model('User')
 
 const getBlogs = () => {
     return Blog.find()
 }
 
 const addBlog = async (BlogInfo) => {
-    return Blog.create(BlogInfo)
+    const blogObj = await Blog.create(BlogInfo)
+    const blog = blogObj.toJSON()
+    if (blog.name === BlogInfo.name) {
+        User.updateOne({ email: blog.postedBy }, {
+            $addToSet: {
+                blogsPosted: blog._id
+            }
+        }).exec()
+    }
+    return blogObj
 }
 
-const deleteBlog = (id) => {
-    return Blog.findByIdAndDelete(id)
+const deleteBlog = async (id) => {
+    const deletedBlog = await Blog.findByIdAndDelete(id)
+    if (deletedBlog._id.toString() === id) {
+        User.updateOne({ email: deletedBlog.postedBy }, {
+            $pull: {
+                blogsPosted: id
+            }
+        }).exec()
+    }
 }
 
 const updateBlog = (id, updateInfo) => {
