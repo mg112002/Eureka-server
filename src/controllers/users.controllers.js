@@ -45,15 +45,6 @@ const login = async (req, res, next) => {
             return next(error)
         }
 
-        // res.json({
-        //     status: 'success',
-        //     data: {
-        //         name: user.name,
-        //         email: user.email,
-        //         role: user.role
-        //     }
-        // })
-        // generate JWT
         const claims = {
             id: user._id,
             email: user.email,

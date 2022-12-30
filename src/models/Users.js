@@ -18,7 +18,8 @@ const userSchema = new mongoose.Schema({
     },
     role: {
         type: String,
-        enum: ['general', 'admin']
+        enum: ['general', 'admin'],
+        default: 'general'
     },
     blogsPosted: [{
         type: Schema.Types.ObjectId,

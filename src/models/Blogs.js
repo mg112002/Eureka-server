@@ -53,7 +53,10 @@ const blogSchema = new mongoose.Schema({
         type: Date,
         default: Date.now
     },
-    imageUrl: String
+    imageUrl: {
+        type: String,
+        default: 'https://careforlifecharitabletrust.org/wp-content/uploads/2020/02/blog2-1.png'
+    }
 })
 
 blogSchema.post("save", async function () {
