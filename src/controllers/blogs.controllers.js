@@ -103,8 +103,11 @@ const updateBlog = async (req, res, next) => {
 }
 
 const getBlogByCategory = async (req, res, next) => {
-    const { category } = req.params
 
+    let { category } = req.params
+    if (category === 'CS') {
+        category = 'C#'
+    }
     try {
         const blogs = await BlogsService.getBlogsByCategory(category)
 

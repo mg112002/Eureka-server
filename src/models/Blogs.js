@@ -34,7 +34,7 @@ const blogSchema = new mongoose.Schema({
             'Queue',
             'Stack',
             'Graph',
-            'Dynamic Programming'
+            'DynamicProgramming'
         ]
     }],
     postedBy: {

@@ -90,6 +90,24 @@ const searchBlogs = (keyWord = 'a') => {
                     $regex: keyWord,
                     $options: 'i'
                 }
+            },
+            {
+                category: {
+                    $regex: keyWord,
+                    $options: 'i'
+                }
+            },
+            {
+                tags: {
+                    $regex: keyWord,
+                    $options: 'i'
+                }
+            },
+            {
+                postedBy: {
+                    $regex: keyWord,
+                    $options: 'i'
+                }
             }
         ]
     }).exec()
