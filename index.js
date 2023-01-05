@@ -3,14 +3,14 @@ const express = require('express')
 const app = express()
 const path = require('path')
 const { connect } = require('./data/init')
-const cors = require('cors')
+// const cors = require('cors')
 const blogsRoute = require('./src/routes/blogs.routes')
 const usersRoute = require('./src/routes/users.routes')
 const newsletterRoute = require('./src/routes/newsletter.routes')
 
 const PORT = process.env.PORT || 3000
 
-app.use(cors())
+// app.use(cors())
 app.use(express.static(path.join(process.cwd(), 'public')))
 app.use(express.json())
 app.use(express.urlencoded({ extended: false }))
