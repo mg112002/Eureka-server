@@ -12,7 +12,11 @@ const getBlogs = async (req, res) => {
 
 const postBlog = async (req, res, next) => {
     try {
-        const blog = await BlogsService.addBlog(req.body)
+        const blogInfo = {
+            ...req.body,
+            postedBy: res.locals.claims.email
+        }
+        const blog = await BlogsService.addBlog(blogInfo)
 
         res.status(201).json({
             status: 'success',
