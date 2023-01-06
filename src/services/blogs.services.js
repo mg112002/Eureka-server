@@ -49,7 +49,7 @@ const getBlogsByCategory = (category) => {
 
 const updateVotes = async (blogId, options) => {
     const { action, userId } = options
-
+    console.log(options)
     if (action === "upvote") {
         const query = Blog.updateOne({ _id: blogId }, {
             $pull: {
