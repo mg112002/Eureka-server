@@ -4,7 +4,7 @@ const blogSchema = new mongoose.Schema({
     name: {
         type: String,
         required: true,
-        maxLength: 50
+        maxLength: 30
     },
     category: {
         type: String,
@@ -21,7 +21,8 @@ const blogSchema = new mongoose.Schema({
     description: {
         type: String,
         required: true,
-        maxLength: 4096
+        minLength: 500,
+        maxLength: 10000
     },
     tags: [{
         type: String,
