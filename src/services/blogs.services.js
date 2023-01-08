@@ -49,7 +49,6 @@ const getBlogsByCategory = (category) => {
 
 const updateVotes = async (blogId, options) => {
     const { action, userId } = options
-    console.log(options)
     if (action === "upvote") {
         const query = Blog.updateOne({ _id: blogId }, {
             $pull: {
@@ -129,85 +128,3 @@ module.exports = {
     searchBlogs,
     findByEmail
 }
-
-
-// Blog.updateOne({ _id: blogId }, [
-//     {
-//         $set: {
-//             upvotedBy: {
-//                 $switch: {
-//                     branches: [
-//                         {
-//                             case: {
-//                                 $eq: userId,
-//                                 then: { $pull: userId }
-//                             },
-//                             case: {
-//                                 $ne: userId
-//                             }
-//                         }
-//                     ]
-//                 }
-//             }
-//         }
-//     }
-// ])
-
-// const blogObj = await Blog.findById(blogId)
-// const blog = blogObj.toJSON()
-// console.log(blog)
-    // const blogObj = JSON.parse(JSON.stringify(blog))
-
-// console.log(blogObj)
-// if (blog.upvotedBy) {
-//     // console.log(blog.upvotedBy)
-//     if (blog.upvotedBy.includes(userId)) {
-//         await Blog.updateOne({ _id: blogId }, {
-//             $pull: {
-//                 upvotedBy: userId
-//             }
-//         }).exec()
-//     } else {
-//         if (blog.downvotedBy) {
-//             if (blog.downvotedBy.includes(userId)) {
-//                 await Blog.updateOne({ _id: blogId }, {
-//                     $pull: {
-//                         downvotedBy: userId
-//                     }
-//                 }).exec()
-//             }
-//         }
-//         await Blog.updateOne({ _id: blogId }, {
-//             $push: {
-//                 upvotedBy: userId
-//             }
-//         }).exec()
-//     }
-// }
-// if (blog.downvotedBy) {
-//     if (blog.downvotedBy.includes(userId)) {
-//         await Blog.updateOne({ _id: blogId }, {
-//             $pull: {
-//                 downvotedBy: userId
-//             }
-//         }).exec()
-//     } else {
-//         if (blog.upvotedBy) {
-//             if (blog.upvotedBy.includes(userId)) {
-//                 await Blog.updateOne({ _id: blogId }, {
-//                     $pull: {
-//                         upvotedBy: userId
-//                     }
-//                 }).exec()
-//             }
-//         }
-//         await Blog.updateOne({ _id: blogId }, {
-//             $push: {
-//                 downvotedBy: userId
-//             }
-//         }).exec()
-//     }
-// }
-
-    // const res = await Blog.findById(blogId)
-    // console.log(res.toJSON())
